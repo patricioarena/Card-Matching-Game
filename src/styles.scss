@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "HYWenHei";
+  src: local("HYWenHei"), url(./assets/fonts/zh-cn.ttf) format("truetype");
+}
+
+:root{
+  --background-color: #37474f
+}
+
+body {
+  background-color: var(--background-color);
+  background-image: url("https://www.gensh.in/typo3conf/ext/awsm_page_package/Resources/Public/MainTemplate/Images/Backgrounds/1.jpg");
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "game": {
+    "card_matching_game": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/game",
+            "outputPath": "dist/card_matching_game",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "game:build:production"
+              "browserTarget": "card_matching_game:build:production"
             },
             "development": {
-              "browserTarget": "game:build:development"
+              "browserTarget": "card_matching_game:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "game:build"
+            "browserTarget": "card_matching_game:build"
           }
         },
         "test": {
@@ -107,5 +107,6 @@
       }
     }
   },
-  "defaultProject": "game"
+  "defaultProject": "card_matching_game"
 }
+
