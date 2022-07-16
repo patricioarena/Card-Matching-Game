@@ -42,6 +42,7 @@ export interface Card {
 })
 export class BoardComponent implements OnInit {
 
+  imageUrlStars = "/assets/images/5-stars.png";
   imageUrlFirstTime = "/assets/images/d36bf21bac71e6b64a9fb10a24a29319.png";
   imageUrlBackOfCard = "/assets/images/2540e00cdb975e70dee4f346b027451b.jpg";
   imageUrlCongratulations = "/assets/images/123b09c850b3342f79b01657ef72366ef8.png";

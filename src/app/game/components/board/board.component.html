@@ -21,15 +21,23 @@
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="autoWinner()">Auto Winner</button>
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetGame()">Reset Game</button>
     </div>
-    
+
   </div>
 </div>
 
 
 <div *ngIf="winner else noWinner">
-  <div id="overlay">
-    <div class="congrats-container">
-      <div class="congrats">
+  <div id="winner-overlay">
+    <div class="winner-container">
+      <div class="winner-box">
+        <div class="winner-text">
+          <span class="letra-color">Congratulations!</span> <br>
+        </div>
+        <div class="winner-img-stars">
+          <img src="{{imageUrlStars}}" />
+        </div>
+      </div>
+      <div class="winner-img">
         <img src="{{imageUrlCongratulations}}" />
       </div>
       <div>
@@ -38,16 +46,21 @@
         <button type="button" class="btn btn-primary waves-effect waves-light" (click)="nextLevel()"
           [disabled]="!nextLevelAvailable">Next level</button>
       </div>
+
     </div>
   </div>
 </div>
 
 <ng-template #noWinner></ng-template>
 
-<div *ngIf="firstTime else noFirstTime">
-   <div id="overlay">
-    <div class="congrats-container">
-      <div class="congrats">
+ <div *ngIf="firstTime else noFirstTime">
+   <div id="thx-overlay">
+    <div class="thx-container">
+      <div class="thx-text">
+        <span class="letra-color">Thank you so much for to playing my </span> <br>
+        <span class="letra-color">game!</span>
+      </div>
+      <div class="thx-img">
         <img src="{{imageUrlFirstTime}}" />
       </div>
       <div>

@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BoardComponent } from './components/board/board.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'board' },
-  { path: 'board', component: BoardComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'game' },
+  {
+    path: 'game',
+    loadChildren: () => import(`./game/game.module`).then(
+      module => module.GameModule
+    )
+  },
 ];
 
 @NgModule({
