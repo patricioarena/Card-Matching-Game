@@ -23,7 +23,7 @@
 
     <div *ngIf="isProduction else noProduction">
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetGame()">Reset Game</button>
-      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetLevel()">Reset Level</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetLevel()">{{resetTextorStartText()}}</button>
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="stopGame()">Stop Game</button>
     </div>
 
@@ -33,7 +33,7 @@
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="stopTimer()">Stop Timer</button>
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetTimer()">Reset Timer</button>
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetGame()">Reset Game</button>
-      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetLevel()">Reset Level</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetLevel()">{{resetTextorStartText()}}</button>
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="stopGame()">stop Game</button>
       <button type="button" class="btn btn-primary waves-effect waves-light" (click)="printCards()">print cards</button>
     </ng-template>
