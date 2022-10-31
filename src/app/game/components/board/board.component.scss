@@ -1,0 +1,176 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+.my-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+/*#region card*/
+.card-container {
+  display: flex;
+  width: 100%;
+  max-width: 725px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, minmax(725px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(725px, 1fr));
+  background-color: rgba(0,0,0,0.2);
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.card {
+  background: #191c29;
+  width: 100px;
+  height: 160px;
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  transform-style: preserve-3d;
+  font-family: cursive;
+  margin: 5px;
+  cursor: not-allowed;
+}
+
+.card:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+.border-animate::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.border-animate::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #3c67e3 43%, #4e00c2);
+    opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+.face {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  backface-visibility: hidden;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+/*#endregion card*/
+
+#thx-overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: default;
+}
+
+.thx-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+}
+
+.thx-text {
+  position: fixed;
+  display: block;
+  width: 200px;
+  margin-right: 120px;
+  margin-top: -50px;
+  z-index: 1;
+}
+
+.thx {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.thx-img img {
+  max-width: 350px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.my-col{
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+}
+
+

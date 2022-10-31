@@ -1,0 +1,72 @@
+<div class="my-container">
+  <div class="card-container">
+
+    <div class="header">
+      <div class="my-col">
+        <span class="letra-color">Nivel {{ level }}</span>
+      </div>
+      <div class="my-col">
+        <app-timer (score)="toTransferScore($event)"></app-timer>
+      </div>
+    </div>
+
+    <div *ngFor="let card of cards;">
+      <button class="card"  [ngClass]="{'border-animate' : card.seleccion}" (click)="cardClicked(card)" [@cardFlip]="card.state" [disabled]="card.disabled" #card>
+        <div class="face back">
+          <img src="{{imageUrlBackOfCard}}"/>
+        </div>
+        <div class="face front">
+          <img [src]="card.imageUrl"/>
+        </div>
+      </button>
+    </div>
+
+    <div *ngIf="isProduction else noProduction">
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetGame()">Reset Game</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetLevel()">Reset Level</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="stopGame()">Stop Game</button>
+    </div>
+
+    <ng-template #noProduction>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="autoWinner()">Auto Winner</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="startTimer()">Start Timer</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="stopTimer()">Stop Timer</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetTimer()">Reset Timer</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetGame()">Reset Game</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="resetLevel()">Reset Level</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="stopGame()">stop Game</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" (click)="printCards()">print cards</button>
+    </ng-template>
+
+  </div>
+
+<!-- <div class="letra-color">
+  History
+</div> -->
+
+</div>
+
+<div *ngIf="winner else noWinner">
+  <app-winner (action)="executeAction($event)" [nextLevelAvailable]="nextLevelAvailable" [score]="score"></app-winner>
+</div>
+
+<ng-template #noWinner></ng-template>
+
+<div *ngIf="firstTime && isProduction; else noFirstTime">
+  <div id="thx-overlay">
+    <div class="thx-container">
+      <div class="thx-text">
+        <span class="letra-color">Thank you so much for to playing my </span> <br>
+        <span class="letra-color">game!</span>
+      </div>
+      <div class="thx-img">
+        <img src="{{imageUrlFirstTime}}"/>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary waves-effect waves-light" (click)="startGame()">Start Game</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noFirstTime></ng-template>
