@@ -60,6 +60,7 @@ export class BoardComponent implements OnInit {
   nextLevelAvailable:boolean = false;
   winner:boolean = false;
   firstTime:boolean = true;
+  buttonStopClicked:boolean = false;
 
   cards: Card[] = [
     { imageUrl: "/assets/images/9afd9a7771d5ebe534e7ff93f5aad005.jpg", state: "default", value: '1', seleccion: false, disabled: false },
@@ -249,6 +250,7 @@ export class BoardComponent implements OnInit {
     this.resetLevel();
     this.cardsDisabled();
     this.timer.stopTimer();
+    this.buttonStopClicked = true;
   }
 
   startTimer() {
@@ -260,6 +262,7 @@ export class BoardComponent implements OnInit {
   }
 
   resetTimer() {
+    this.buttonStopClicked = false;
     this.timer.resetTimer();
   }
 
@@ -273,5 +276,9 @@ export class BoardComponent implements OnInit {
 
   printCards(){
      isDevMode() && console.log(this.cards);
+  }
+
+  resetTextorStartText(){
+    return this.buttonStopClicked? 'Start Game': 'Reset Level';
   }
 }
